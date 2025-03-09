@@ -5,39 +5,39 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { PaymentModal } from "./payment-modal"
 
-const initialBills = [
-  { id: 1, name: "Electricity Bill", amount: 85, dueDate: "2023-07-15" },
-  { id: 2, name: "Internet Service", amount: 60, dueDate: "2023-07-18" },
-  { id: 3, name: "Credit Card Payment", amount: 500, dueDate: "2023-07-25" },
-  { id: 4, name: "Water Bill", amount: 45, dueDate: "2023-07-30" },
+const initialEmployees = [
+  { id: 1, name: "Renz | Business Partner", salary: 30000, payDate: "2025-03-15" },
+  { id: 2, name: "Liza Mendoza | Project Manager", salary: 15000, payDate: "2025-03-18" },
+  { id: 3, name: "Mark Villanueva | Software Engineer", salary: 15000, payDate: "2025-03-25" },
+  { id: 4, name: "Angela Cruz | Marketing Specialist", salary: 15000, payDate: "2025-03-30" },
 ]
 
-export function QuickBillPay() {
-  const [bills, setBills] = useState(initialBills)
-  const [selectedBill, setSelectedBill] = useState(null)
+export function EmployeePayroll() {
+  const [employees, setEmployees] = useState(initialEmployees)
+  const [selectedEmployee, setSelectedEmployee] = useState(null)
 
-  const handlePaymentSuccess = (paidBillId) => {
-    setBills(bills.filter((bill) => bill.id !== paidBillId))
-    setSelectedBill(null)
+  const handlePaymentSuccess = (paidEmployeeId) => {
+    setEmployees(employees.filter((employee) => employee.id !== paidEmployeeId))
+    setSelectedEmployee(null)
   }
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Quick Bill Pay</CardTitle>
+        <CardTitle>Employee Payroll</CardTitle>
       </CardHeader>
       <CardContent>
-        {bills.length > 0 ? (
+        {employees.length > 0 ? (
           <div className="space-y-4">
-            {bills.map((bill) => (
-              <div key={bill.id} className="flex items-center justify-between">
+            {employees.map((employee) => (
+              <div key={employee.id} className="flex items-center justify-between">
                 <div>
-                  <p className="font-medium">{bill.name}</p>
-                  <p className="text-sm text-muted-foreground">Due: {bill.dueDate}</p>
+                  <p className="font-medium">{employee.name}</p>
+                  <p className="text-sm text-muted-foreground">Pay Date: {employee.payDate}</p>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <span className="font-bold">${bill.amount}</span>
-                  <Button variant="outline" size="sm" onClick={() => setSelectedBill(bill)}>
+                  <span className="font-bold">₱{employee.salary.toLocaleString()}</span>
+                  <Button variant="outline" size="sm" onClick={() => setSelectedEmployee(employee)}>
                     Pay
                   </Button>
                 </div>
@@ -45,18 +45,17 @@ export function QuickBillPay() {
             ))}
           </div>
         ) : (
-          <p className="text-center text-muted-foreground">No pending bills</p>
+          <p className="text-center text-muted-foreground">All employees have been paid</p>
         )}
       </CardContent>
-      {selectedBill && (
+      {selectedEmployee && (
         <PaymentModal
-          bill={selectedBill}
-          isOpen={!!selectedBill}
-          onClose={() => setSelectedBill(null)}
-          onPaymentSuccess={() => handlePaymentSuccess(selectedBill.id)}
+          bill={selectedEmployee}
+          isOpen={!!selectedEmployee}
+          onClose={() => setSelectedEmployee(null)}
+          onPaymentSuccess={() => handlePaymentSuccess(selectedEmployee.id)}
         />
       )}
     </Card>
   )
 }
-
