@@ -3,11 +3,11 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight, ArrowDownRight } from "lucide-react"
 
 const transactions = [
-  { id: 1, name: "Amazon.com", amount: -129.99, date: "2023-07-15", type: "expense" },
-  { id: 2, name: "Whole Foods Market", amount: -89.72, date: "2023-07-10", type: "expense" },
-  { id: 3, name: "Netflix Subscription", amount: -15.99, date: "2023-07-05", type: "expense" },
-  { id: 4, name: "Freelance Payment", amount: 750, date: "2023-07-12", type: "income" },
-  { id: 5, name: "Gas Station", amount: -45.5, date: "2023-07-18", type: "expense" },
+  { id: 1, name: "SM Department Store", amount: -2500, date: "2025-03-05", type: "expense" },
+  { id: 2, name: "GrabFood Delivery", amount: -350, date: "2025-03-02", type: "expense" },
+  { id: 3, name: "Spotify Premium", amount: -149, date: "2025-03-01", type: "expense" },
+  { id: 4, name: "Freelance Web Design", amount: 18000, date: "2025-02-28", type: "income" },
+  { id: 5, name: "Shell Gas Station", amount: -2000, date: "2025-03-07", type: "expense" },
 ]
 
 export function RecentTransactions() {
@@ -32,7 +32,7 @@ export function RecentTransactions() {
                       : "text-red-600 dark:text-red-400"
                   }`}
                 >
-                  {transaction.type === "income" ? "+" : "-"}${Math.abs(transaction.amount).toFixed(2)}
+                  {transaction.type === "income" ? "+" : "-"}₱{Math.abs(transaction.amount).toLocaleString()}
                 </span>
                 {transaction.type === "income" ? (
                   <ArrowUpRight className="h-4 w-4 text-green-600 dark:text-green-400 ml-1" />
@@ -50,4 +50,3 @@ export function RecentTransactions() {
     </Card>
   )
 }
-
