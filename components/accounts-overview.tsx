@@ -9,9 +9,9 @@ import { SendMoneyModal } from "./send-money-modal"
 import { RequestMoneyModal } from "./request-money-modal"
 
 const initialAccounts = [
-  { name: "Checking", balance: 7500 },
-  { name: "Savings", balance: 560000 },
-  { name: "Investment", balance: 5879000 },
+  { name: "Wallet", balance: 356814 },
+  { name: "Savings", balance: 12000 },
+  { name: "Investment", balance: 50000 },
 ]
 
 export function AccountsOverview() {
@@ -25,21 +25,21 @@ export function AccountsOverview() {
   const handleAddMoney = (amount) => {
     setAccounts(
       accounts.map((account) =>
-        account.name === "Checking" ? { ...account, balance: account.balance + amount } : account,
-      ),
+        account.name === "Wallet" ? { ...account, balance: account.balance + amount } : account
+      )
     )
   }
 
   const handleSendMoney = (amount, fromAccount) => {
     setAccounts(
       accounts.map((account) =>
-        account.name === fromAccount ? { ...account, balance: account.balance - amount } : account,
-      ),
+        account.name === fromAccount ? { ...account, balance: account.balance - amount } : account
+      )
     )
   }
 
   const handleRequestMoney = (amount, contact) => {
-    console.log(`Requested $${amount} from ${contact.name}`)
+    console.log(`Requested ₱${amount} from ${contact.name}`)
   }
 
   return (
@@ -49,13 +49,13 @@ export function AccountsOverview() {
         <Wallet className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">${totalBalance.toLocaleString()}</div>
+        <div className="text-2xl font-bold">₱{totalBalance.toLocaleString()}</div>
         <p className="text-xs text-muted-foreground">Total balance across all accounts</p>
         <div className="mt-4 space-y-2">
           {accounts.map((account) => (
             <div key={account.name} className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">{account.name}</span>
-              <span className="text-sm font-medium">${account.balance.toLocaleString()}</span>
+              <span className="text-sm font-medium">₱{account.balance.toLocaleString()}</span>
             </div>
           ))}
         </div>
@@ -93,4 +93,3 @@ export function AccountsOverview() {
     </Card>
   )
 }
-
