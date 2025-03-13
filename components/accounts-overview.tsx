@@ -10,7 +10,7 @@ import { RequestMoneyModal } from "./request-money-modal"
 
 const initialAccounts = [
   { name: "Wallet", balance: 356814 },
-  { name: "Savings", balance: 12000 },
+  { name: "Savings", balance: 15000 },
   { name: "Investment", balance: 50000 },
 ]
 
