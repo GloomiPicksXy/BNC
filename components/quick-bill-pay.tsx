@@ -12,13 +12,14 @@ const initialBills = [
   { id: 4, name: "Kyle | Checker", amount: 500, dueDate: "2025-03-30" },
 ];
 
-export function EmployeePayroll() {
-  const [employees, setEmployees] = useState(initialEmployees)
-  const [selectedEmployee, setSelectedEmployee] = useState(null)
 
-  const handlePaymentSuccess = (paidEmployeeId) => {
-    setEmployees(employees.filter((employee) => employee.id !== paidEmployeeId))
-    setSelectedEmployee(null)
+export function QuickBillPay() {
+  const [bills, setBills] = useState(initialBills)
+  const [selectedBill, setSelectedBill] = useState(null)
+
+  const handlePaymentSuccess = (paidBillId) => {
+    setBills(bills.filter((bill) => bill.id !== paidBillId))
+    setSelectedBill(null)
   }
 
   return (
