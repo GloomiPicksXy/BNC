@@ -5,12 +5,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { PaymentModal } from "./payment-modal"
 
-const initialEmployees = [
-  { id: 1, name: "Renz | Business Partner", salary: 30000, payDate: "2025-03-15" },
-  { id: 2, name: "Liza Mendoza | Project Manager", salary: 15000, payDate: "2025-03-18" },
-  { id: 3, name: "Mark Villanueva | Software Engineer", salary: 15000, payDate: "2025-03-25" },
-  { id: 4, name: "Angela Cruz | Marketing Specialist", salary: 15000, payDate: "2025-03-30" },
-]
+const initialBills = [
+  { id: 1, name: "Renz | Business Partner", amount: 35000, dueDate: "2025-03-20" },
+  { id: 2, name: "Kelly | Reseller", amount: 7000, dueDate: "2025-03-15" },
+  { id: 3, name: "TNP Subscription", amount: 300, dueDate: "2025-03-20" },
+  { id: 4, name: "Kyle | Checker", amount: 500, dueDate: "2025-03-30" },
+];
 
 export function EmployeePayroll() {
   const [employees, setEmployees] = useState(initialEmployees)
