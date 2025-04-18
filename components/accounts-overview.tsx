@@ -10,8 +10,8 @@ import { RequestMoneyModal } from "./request-money-modal"
 
 const initialAccounts = [
   { name: "Wallet", balance: 356814 },
-  { name: "Savings", balance: 15000 },
-  { name: "Investment", balance: 50000 },
+  { name: "BTC", balance: 2 },
+  { name: "BNC", balance: 58 },
 ]
 
 export function AccountsOverview() {
