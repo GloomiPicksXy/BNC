@@ -3,9 +3,9 @@ import { Button } from "@/components/ui/button"
 import { ArrowUpRight, ArrowDownRight } from "lucide-react"
 
 const transactions = [
-  { id: 1, name: "CodaShop", amount: -4750, date: "2025-04-10", type: "expense" },
-  { id: 2, name: "CodaShop", amount: -4750, date: "2025-04-10", type: "expense" },
-  { id: 3, name: "GrabFood Delivery", amount: -620, date: "2025-04-10", type: "expense" },
+  { id: 1, name: "CodaShop", amount: -4750, date: "2 Hours ago", type: "expense" },
+  { id: 2, name: "CodaShop", amount: -4750, date: "2 Hours ago", type: "expense" },
+  { id: 3, name: "GrabFood Delivery", amount: -620, date: "2 Days ago", type: "expense" },
   { id: 4, name: "Freelance Web Design", amount: 18000, date: "2025-02-28", type: "income" },
   { id: 5, name: "Shell Gas Station", amount: -2000, date: "2025-03-07", type: "expense" },
 ]
