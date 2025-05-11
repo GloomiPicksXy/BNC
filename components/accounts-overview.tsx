@@ -39,7 +39,7 @@ export function AccountsOverview() {
   }
 
   const handleRequestMoney = (amount, contact) => {
-    console.log(`Requested $${amount} from ${contact.name}`)
+    console.log(`Requested ₱${amount} from ${contact.name}`)
   }
 
   return (
@@ -49,13 +49,13 @@ export function AccountsOverview() {
         <Wallet className="h-4 w-4 text-muted-foreground" />
       </CardHeader>
       <CardContent>
-        <div className="text-2xl font-bold">${totalBalance.toLocaleString()}</div>
+        <div className="text-2xl font-bold">₱{totalBalance.toLocaleString()}</div>
         <p className="text-xs text-muted-foreground">Total balance across all accounts</p>
         <div className="mt-4 space-y-2">
           {accounts.map((account) => (
             <div key={account.name} className="flex justify-between items-center">
               <span className="text-sm text-muted-foreground">{account.name}</span>
-              <span className="text-sm font-medium">${account.balance.toLocaleString()}</span>
+              <span className="text-sm font-medium">₱{account.balance.toLocaleString()}</span>
             </div>
           ))}
         </div>
@@ -93,4 +93,3 @@ export function AccountsOverview() {
     </Card>
   )
 }
-
